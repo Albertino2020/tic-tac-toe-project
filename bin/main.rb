@@ -67,10 +67,12 @@ while !game_over && count < 9 && !check_input.empty?
     print board[6], "  |  ", board[7], "  |  ", board[8], "\n"
     print "\n"
     i = player_one_choice - 1
-    game_over = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]].any? do
-      |a| a.include?(i) && a.all? { |x| board[x] == board[i] } end
+    game_over = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]].any? do |a|
+      a.include?(i) && a.all? { |x| board[x] == board[i] }
+    end
     if game_over
-      puts "Game over !! Congratulation #{player_one_name}, you are the winner!"
+      puts "Game over !! Congratulation #{player_one_name}, you are the winner", "\n"
+      break
     end
 
     count += 1
@@ -94,19 +96,19 @@ while !game_over && count < 9 && !check_input.empty?
     print board[6], "  |  ", board[7], "  |  ", board[8], "\n"
     print "\n"
     i = player_two_choice - 1
-    game_over = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]].any? do
-      |a| a.include?(i) && a.all? { |x| board[x] == board[i] } end
+    game_over = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]].any? do |a|
+      a.include?(i) && a.all? { |x| board[x] == board[i] }
+    end
     if game_over
-      puts "Game over !! Congratulation #{player_two_name}, you are the winner"
+      puts "Game over !! Congratulation #{player_two_name}, you are the winner", "\n"
+      break
     end
     count += 1
     played_one = false
     played_two = true
   end
 end
-if !game_over
-    puts "Match Drawn!!", "\n"
-end
+puts "Match Drawn!!", "\n" unless game_over
 
 # puts "Congratulation #{player_two_name}, you are the winner" if game_over
 # display_board(current_board)
