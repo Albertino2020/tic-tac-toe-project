@@ -58,6 +58,15 @@ while !game_over && count < 9 && !check_input.empty?
   
       board[player_one_choice - 1] = input_symb1 # unless !check_input.include?(player_one)
       check_input.delete(player_one_choice)
+      # display_board(current_board)
+      puts "Current Board:", "\n"
+      print board[0], "  |  ", board[1], "  |  ", board[2], "\n"
+      print "\n"
+      print board[3], "  |  ", board[4], "  |  ", board[5], "\n"
+      print "\n"
+      print board[6], "  |  ", board[7], "  |  ", board[8], "\n"
+      print "\n"
+  
       count += 1
       played_one = true
       played_two = false
@@ -70,6 +79,15 @@ while !game_over && count < 9 && !check_input.empty?
   
       board[player_two_choice - 1] = input_symb2 # unless !check_input.include?(player_one)
       check_input.delete(player_two_choice)
+      # display_board(current_board)
+      puts "Current Board:", "\n"
+      print board[0], "  |  ", board[1], "  |  ", board[2], "\n"
+      print "\n"
+      print board[3], "  |  ", board[4], "  |  ", board[5], "\n"
+      print "\n"
+      print board[6], "  |  ", board[7], "  |  ", board[8], "\n"
+      print "\n"
+
       count += 1
       played_one = false
       played_two = true
