@@ -37,3 +37,9 @@ print board[3], "  |  ", board[4], "  |  ", board[5], "\n"
 print "\n"
 print board[6], "  |  ", board[7], "  |  ", board[8], "\n"
 print "\n"
+# Initialize Control Variables
+played_one = false
+played_two = true
+count = 0
+check_input = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+game_over = false
