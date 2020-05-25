@@ -9,5 +9,15 @@ class Board
     $current_board[choice - 1] = symbol
   end
 
-  
+  def next_move
+    if @player_one.turn
+      @player_one.play
+      return player_one
+    else
+      @player_two.play
+      return player_two
+    end
+  end
+
+
 end
