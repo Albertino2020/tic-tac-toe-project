@@ -5,5 +5,9 @@ class Board
     @player_two = Player.new(name2, symb2, !option)
   end
 
+  def record(symbol, choice)
+    $current_board[choice - 1] = symbol
+  end
 
+  
 end
