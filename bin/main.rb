@@ -37,7 +37,6 @@ puts "#{player_two_name} will play with the game symbol #{input_symb2}"
 
 puts ""
 
-
 play_again = true
 while play_again
   first_to_play = ""
@@ -54,7 +53,23 @@ while play_again
   $game_over = false
   $count = 0
 
+  puts "Current Board:", "\n"
 
+  $board.display
+  while $count < 9
+    player = $board.next_move
+
+    break if $game_over || $check_input.empty?
+    $board.switch(player)
+  end
+  if $game_over
+    puts "Game over!! Congratulations, #{$board.winner.name}, you won!!", "\n"
+  else
+    puts "Match Drawn!!", "\n"
+  end
+
+  puts "Current Board:", "\n"
+  $board.display
 
   puts "Play again?", "\n"
   answer = ""
