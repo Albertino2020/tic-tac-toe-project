@@ -19,5 +19,13 @@ class Board
     end
   end
 
+  def switch(player)
+    if player == player_one
+      player_two.turn = true
+    else
+      player_one.turn = true
+    end
+  end
+
 
 end
