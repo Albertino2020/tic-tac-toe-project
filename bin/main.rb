@@ -47,7 +47,14 @@ while play_again
     option = player_one_name == first_to_play
   end
 
- 
+  $board = Board.new(player_one_name, player_two_name, input_symb1, input_symb2, option)
+  $current_board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+  $check_input = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+  $board_check = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
+  $game_over = false
+  $count = 0
+
+
 
   puts "Play again?", "\n"
   answer = ""
