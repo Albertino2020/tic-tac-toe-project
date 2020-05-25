@@ -16,7 +16,6 @@ class Player
       $check_input.delete(@choice)
       $game_over = $board_check.any? { |opt| opt.all? { |match| $current_board[match] == @symbol } }
       $board.display
-      print $game_over
       if $game_over
         @winner = true
         break
