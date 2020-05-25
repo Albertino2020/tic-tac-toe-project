@@ -27,5 +27,14 @@ class Board
     end
   end
 
+  def display
+    print $current_board[0], "  |  ", $current_board[1], "  |  ", $current_board[2], "\n"
+    print "\n"
+    print $current_board[3], "  |  ", $current_board[4], "  |  ", $current_board[5], "\n"
+    print "\n"
+    print $current_board[6], "  |  ", $current_board[7], "  |  ", $current_board[8], "\n"
+    print "\n"
+  end
+
 
 end
