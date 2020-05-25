@@ -38,3 +38,22 @@ puts "#{player_two_name} will play with the game symbol #{input_symb2}"
 puts ""
 
 
+play_again = true
+while play_again
+  first_to_play = ""
+  until [player_one_name, player_two_name].include?(first_to_play)
+    puts "Who will start playing?", "\n"
+    first_to_play = gets.chomp
+    option = player_one_name == first_to_play
+  end
+
+ 
+
+  puts "Play again?", "\n"
+  answer = ""
+  until %w[y Y n N].include?(answer)
+    puts "Please choose Y/N (yes/no)", "\n"
+    answer = gets.chomp
+  end
+  play_again = answer.upcase == Y
+end
