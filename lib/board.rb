@@ -1,5 +1,6 @@
 class Board
   attr_accessor :player_one, :player_two
+
   def initialize(_name1, name2, symb1, symb2, option)
     @player_one = Player.new(_name1, symb1, option)
     @player_two = Player.new(name2, symb2, !option)
@@ -36,5 +37,11 @@ class Board
     print "\n"
   end
 
-
+  def winner
+    if @player_one.winner
+      @player_one
+    elsif @player_two.winner
+      @player_two
+    end
+  end
 end
