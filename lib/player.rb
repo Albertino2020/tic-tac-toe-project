@@ -1,6 +1,7 @@
 # rubocop: disable Style/GlobalVars
 class Player
-  attr_accessor :name, :symbol, :turn, :turn_one, :turn_two, :choice, :winner
+  attr_reader :name, :symbol, :turn, :turn_one, :turn_two, :choice, :winner
+  attr_writer :name, :symbol, :turn, :turn_one, :turn_two, :choice, :winner
 
   def initialize(name, symbol, turn)
     @name = name
@@ -10,7 +11,7 @@ class Player
 
   def play
     while @turn
-      puts "#{@name}'s turn: Please choose between #{$check_input}", "\n"
+    #   puts "#{@name}'s turn: Please choose between #{$check_input}", "\n"
       @choice = gets.to_i
       next unless $check_input.include?(@choice)
 

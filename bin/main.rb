@@ -44,6 +44,7 @@ while play_again
     puts 'Who will start playing?', "\n"
     first_to_play = gets.chomp
     option = player_one_name == first_to_play
+    player = option ? Player.new(player_one_name, input_symb1, true) : Player.new(player_two_name, input_symb2, true)
   end
 
   $board = Board.new(player_one_name, player_two_name, input_symb1, input_symb2, option)
@@ -57,6 +58,9 @@ while play_again
 
   $board.display
   while $count < 9
+
+    puts "#{player.name}'s turn: Please choose between #{$check_input}", "\n"
+
     player = $board.next_move
 
     break if $game_over || $check_input.empty?
