@@ -1,123 +1,95 @@
 #!/usr/bin/env ruby
+# rubocop: disable Metrics/BlockNesting
+require_relative '../lib/board.rb'
+require_relative '../lib/player.rb'
 puts 'Wellcome to the tic-tac-toe geme!'
-# display_instruction()
-# Identify players:
 player_one_name = ''
 player_two_name = ''
+X = 'X'.freeze
+O = 'O'.freeze
+Y = 'Y'.freeze
+N = 'N'.freeze
+
+def display(board)
+  print board[0], '  |  ', board[1], '  |  ', board[2], "\n"
+  print "\n"
+  print board[3], '  |  ', board[4], '  |  ', board[5], "\n"
+  print "\n"
+  print board[6], '  |  ', board[7], '  |  ', board[8], "\n"
+  print "\n"
+end
+
 until player_one_name.is_a?(String) && !player_one_name.empty?
-  puts 'Player One: What is your name?'
+  puts 'Player One: What is your name?', "\n"
   player_one_name = gets.chomp
 end
-puts "The Player One name is #{player_one_name}."
+puts "The Player One name is #{player_one_name}.", "\n"
 
 until player_two_name.is_a?(String) && !player_two_name.empty?
-  puts 'Player Two: What is your name?'
+  puts 'Player Two: What is your name?', "\n"
   player_two_name = gets.chomp
 end
-puts "The Player Two name is #{player_two_name}."
-# Read player's option and set up game symbol
+puts "The Player Two name is #{player_two_name}.", "\n"
+
 input_symb1 = ''
 until %w[x X o O].include?(input_symb1)
-  puts 'Please choose X or O'
-  input_symb1 = gets.chomp # Read player option.
+  puts 'Please choose X or O', "\n"
+  input_symb1 = gets.chomp
 end
+
 puts "#{player_one_name} has chosen #{input_symb1} as his game symbol."
-input_symb2 = input_symb1.upcase == 'O' ? 'X' : 'O'
+
+input_symb2 = input_symb1.upcase == 'O' ? X : O
+
 puts "#{player_two_name} will play with the game symbol #{input_symb2}"
+
 puts ''
-# Create player's class instances
-# Initialize game class
-# Initialize Game Board
-board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-# Display Current Board
-puts 'Current Board:', "\n"
-print board[0], '  |  ', board[1], '  |  ', board[2], "\n"
-print "\n"
-print board[3], '  |  ', board[4], '  |  ', board[5], "\n"
-print "\n"
-print board[6], '  |  ', board[7], '  |  ', board[8], "\n"
-print "\n"
-# Initialize Control Variables
-played_one = false
-played_two = true
-count = 0
-check_input = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-game_over = false
-# Read players' optionn from the keyboard,
-# Validate input,
-# Update Game Board,
-# Display Current Board
-# Update Control Variables
 
-while !game_over && count < 9 && !check_input.empty?
-  # unless check_input.empty?
-  while !played_one && played_two && count < 9
-    puts "#{player_one_name}'s turn Please choose between #{check_input} count: #{count}"
-    player_one_choice = gets.to_i # Read player option from the user
-    next unless check_input.include?(player_one_choice)
-
-    board[player_one_choice - 1] = input_symb1 # unless !check_input.include?(player_one)
-    check_input.delete(player_one_choice)
-    # display_board(current_board)
-    puts 'Current Board:', "\n"
-    print board[0], '  |  ', board[1], '  |  ', board[2], "\n"
-    print "\n"
-    print board[3], '  |  ', board[4], '  |  ', board[5], "\n"
-    print "\n"
-    print board[6], '  |  ', board[7], '  |  ', board[8], "\n"
-    print "\n"
-    i = player_one_choice - 1
-    game_over = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]].any? do |a|
-      a.include?(i) && a.all? { |x| board[x] == board[i] }
-    end
-    if game_over
-      puts "Game over !! Congratulation #{player_one_name}, you are the winner", "\n"
-      break
-    end
-
-    count += 1
-    played_one = true
-    played_two = false
+play_again = true
+while play_again
+  first_to_play = ''
+  until [player_one_name, player_two_name].include?(first_to_play)
+    puts 'Who will start playing?', "\n"
+    first_to_play = gets.chomp
+    option = player_one_name == first_to_play
+    player = option ? Player.new(player_one_name, input_symb1, true) : Player.new(player_two_name, input_symb2, true)
+    player.check_input = [1, 2, 3, 4, 5, 6, 7, 8, 9]
   end
 
-  while !played_two && played_one && count < 9
-    puts "#{player_two_name}'s turn Please choose between #{check_input} count: #{count}"
-    player_two_choice = gets.to_i # Read player option from the user
-    next unless check_input.include?(player_two_choice) # Checks input, validate or reject invalid input
+  player.board = Board.new(player_one_name, player_two_name, input_symb1, input_symb2, option)
 
-    board[player_two_choice - 1] = input_symb2 # unless !check_input.include?(player_one)
-    check_input.delete(player_two_choice)
-    # display_board(current_board)
-    puts 'Current Board:', "\n"
-    print board[0], '  |  ', board[1], '  |  ', board[2], "\n"
-    print "\n"
-    print board[3], '  |  ', board[4], '  |  ', board[5], "\n"
-    print "\n"
-    print board[6], '  |  ', board[7], '  |  ', board[8], "\n"
-    print "\n"
-    i = player_two_choice - 1
-    game_over = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]].any? do |a|
-      a.include?(i) && a.all? { |x| board[x] == board[i] }
+  puts 'Current Board:', "\n"
+  display(player.board.current_board)
+  player.board.count = 0
+  player.game_over = false
+  while player.board.count < 9
+    player = player.board.next_to_play
+    player.wrong_move = false
+    while player.turn && !player.check_input.empty?
+      puts "#{player.name}'s turn: Please choose between #{player.check_input}", "\n"
+      player.board.next_move
+      puts 'Oh Oh! Wrong move!! Please try again!', "\n" if player.wrong_move
+      break if player.game_over
     end
-    if game_over
-      puts "Game over !! Congratulation #{player_two_name}, you are the winner", "\n"
-      break
-    end
-    count += 1
-    played_one = false
-    played_two = true
+    break if player.game_over || player.check_input.empty?
+
+    player.board.switch(player)
   end
+  if player.game_over
+    puts "Game over!! Congratulations, #{player.name}, you won!!", "\n"
+  else
+    puts 'Match Drawn!!', "\n"
+  end
+
+  puts 'Current Board:', "\n"
+  display(player.board.current_board)
+
+  puts 'Play again?', "\n"
+  answer = ''
+  until %w[y Y n N].include?(answer)
+    puts 'Please choose Y/N (yes/no)', "\n"
+    answer = gets.chomp
+  end
+  play_again = answer.upcase == Y
 end
-puts 'Match Drawn!!', "\n" unless game_over
-
-# puts "Congratulation #{player_two_name}, you are the winner" if game_over
-# display_board(current_board)
-puts 'Recorded Moves:', "\n"
-print board[0], '  |  ', board[1], '  |  ', board[2], "\n"
-print "\n"
-print board[3], '  |  ', board[4], '  |  ', board[5], "\n"
-print "\n"
-print board[6], '  |  ', board[7], '  |  ', board[8], "\n"
-print "\n"
-# display_results()
-# winner()
+# rubocop: enable Metrics/BlockNesting
