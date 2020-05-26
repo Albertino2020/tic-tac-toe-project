@@ -1,7 +1,7 @@
 # rubocop: disable Style/ClassVars
 class Player
-  attr_reader :name, :symbol, :turn, :choice,:game_over, :wrong_move
-  attr_writer :name, :symbol, :turn, :choice,:game_over, :wrong_move
+  attr_reader :name, :symbol, :turn, :choice, :game_over, :wrong_move
+  attr_writer :name, :symbol, :turn, :choice, :game_over, :wrong_move
 
   def initialize(name, symbol, turn)
     @name = name
@@ -30,7 +30,7 @@ class Player
   def play
     while @turn
       @choice = gets.to_i
-      if !@@check_input.include?(@choice)
+      unless @@check_input.include?(@choice)
         @wrong_move = true
         break
       end
