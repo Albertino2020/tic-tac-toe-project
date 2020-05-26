@@ -1,6 +1,6 @@
 class Board
   attr_reader :player_one, :player_two, :current_board, :count
-  attr_writer :player_one, :player_two, :current_board, :count
+  attr_writer :current_board, :count
 
   def initialize(pname1, pname2, symb1, symb2, option)
     @current_board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
