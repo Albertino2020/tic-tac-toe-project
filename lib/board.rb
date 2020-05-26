@@ -35,12 +35,4 @@ class Board
       @player_one.turn = true
     end
   end
-
-  def winner
-    if @player_one.winner
-      @player_one
-    elsif @player_two.winner
-      @player_two
-    end
-  end
 end
