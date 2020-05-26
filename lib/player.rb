@@ -1,7 +1,7 @@
-# rubocop: disable Style/GlobalVars
+# rubocop: disable Style/ClassVars
 class Player
-  attr_reader :name, :symbol, :turn, :turn_one, :turn_two, :choice, :winner, :game_over, :check_input
-  attr_writer :name, :symbol, :turn, :turn_one, :turn_two, :choice, :winner, :game_over, :check_input
+  attr_reader :name, :symbol, :turn, :turn_one, :turn_two, :choice, :winner, :game_over
+  attr_writer :name, :symbol, :turn, :turn_one, :turn_two, :choice, :winner, :game_over
 
   def initialize(name, symbol, turn)
     @name = name
@@ -15,17 +15,17 @@ class Player
 
   def check_input=(value)
     @@check_input = value
-
-    def board
-      @@board
-    end
-
-    def board=(value)
-      @@board = value
-    end
   end
 
-  BOARD_CHECK = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
+  def board
+    @@board
+  end
+
+  def board=(value)
+    @@board = value
+  end
+
+  BOARD_CHECK = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]].freeze
 
   def play
     while @turn
@@ -46,4 +46,4 @@ class Player
   end
 end
 
-# rubocop: enable Style/GlobalVars
+# rubocop: enable Style/ClassVars

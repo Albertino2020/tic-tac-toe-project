@@ -1,10 +1,9 @@
-# rubocop: disable Style/GlobalVars
 class Board
   attr_reader :player_one, :player_two, :current_board, :count
   attr_writer :player_one, :player_two, :current_board, :count
 
   def initialize(pname1, pname2, symb1, symb2, option)
-    @current_board = current_board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    @current_board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
     @player_one = Player.new(pname1, symb1, option)
     @player_two = Player.new(pname2, symb2, !option)
   end
@@ -45,5 +44,3 @@ class Board
     end
   end
 end
-
-# rubocop: enable Style/GlobalVars
