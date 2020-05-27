@@ -1,10 +1,10 @@
 # Object Oriented Programming: An Implementation the  of Tic-tac-toe Game
 
-> This project concerns an implementation of the tic-tac.toe gam in Ruby using the Object Oriented Programming concept.
+> This project concerns the implementation of the tic-tac. toe game in Ruby using the Object-Oriented Programming concept.
 
 ![screenshot](./img/screenshot.png)
 
-The project was implemented in Ruby, using the concept of Object Oriented Programming, according to the main curriculum of Microverse.
+The project was implemented, according to the main curriculum of Microverse.
 
 ## Built With
 
@@ -18,38 +18,38 @@ The project was implemented in Ruby, using the concept of Object Oriented Progra
 
 ### About the Game 
 
-    Tic-tac-toe is a paper-and-pencil game for two players.
+Tic-tac-toe is a paper-and-pencil game for two players.
 
-    The players are identified by their respective symbols 'X' (cross) and 'O' (nought).
+The players are identified by their respective symbols 'X' (cross) and 'O' (naught).
 
-    For this reason, this game is also called noughts and crosses, or Xs and Os.
+For this reason, this game is also called noughts and crosses, or Xs and Os.
 
-    The players take turns marking the spaces in a 3×3 grid. 
+The players take turns marking the spaces in a 3×3 grid. 
 
-    The player who first succeeds in placing three of his/her mark in a horizontal, vertical, or diagonal row, wins the match.
+The player who first succeeds in placing three of his/her mark in a horizontal, vertical, or diagonal row, wins the match.
 
-    If all the spaces in the grid are marked and none of the playes can win, the match is drawn.
+If all the spaces in the grid are marked and none of the players can win, the match is drawn.
 
-    This is an implamentation of the tic-tac-toe game in Ruby.
+This is an implementation of the tic-tac-toe game in Ruby.
 
-    To get a local copy up and running follow these simple example steps.
+To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 As prerequisites, you must have:
 
 1. Access to the command line. 
 
-2. Git installed, configured and running on your local machine.
-        To download, install and run Git on your local machine, please access https://git-scm.com/book/en/v2/Getting-Started-Installing-Git.
+2. Git installed, configured, and running on your local machine.
+        To download, install, and run Git on your local machine, please access https://git-scm.com/book/en/v2/Getting-Started-Installing-Git.
 
-3. Ruby installed, configured and running on your local machine. 
-        To download, configure and run Ruby on your local machine, please access https://www.ruby-lang.org/en/downloads/.
+3. Ruby installed, configured, and running on your local machine. 
+        To download, configure, and run Ruby on your local machine, please access https://www.ruby-lang.org/en/downloads/.
 
 ### Setup
 1. Open your command line:
-  
-    There are varying ways of accessing command line, depending on what operating system you use.
-    If you are not familiar with command line or just want to get further information, please access the following link: https://towardsdatascience.com/a-quick-guide-to-using-command-line-terminal-96815b97b955.
+
+    There are varying ways of accessing the command line, depending on what operating system you use.
+    If you are not familiar with the command line or just want to get further information, please access the following link: https://towardsdatascience.com/a-quick-guide-to-using-command-line-terminal-96815b97b955.
 
 2. While in the command prompt, type 'cd' and press ENTER to make sure you are in the root directory. 
 
@@ -59,7 +59,7 @@ As prerequisites, you must have:
 
 ![screenshot](./img/clone.png)
 
-4. type 'cd tic-tac-toe-project' and  press ENTER, to go to the tic-tac-toe game folder in your local machine.
+4. type 'cd tic-tac-toe-project' and press ENTER, to go to the tic-tac-toe game folder in your local machine.
 
 ![screenshot](./img/ttt.png)
 
@@ -71,27 +71,27 @@ As prerequisites, you must have:
 
 ### How to Play
 
-1. Follow instructions presented above to setup and run the game on your local machine.
+1. Follow the instructions presented above to set up and run the game on your local machine.
 
-2. When prompted, follow instructions on the screen. It is important to write names correctly, so that the subsequent name spellings match the first spelling.
+2. When prompted, follow instructions on the screen. It is important to write names correctly so that the subsequent name spellings match the first spelling.
 
-3. Write your name and the name of your opponent when asked for.
+3. Write your name and the name of your opponent when asked for it.
 
 ![screenshot](./img/name.png)
 
-4. Pick up your game symbol when asked for.
+4. Pick up your game symbol when asked for it.
 
 ![screenshot](./img/symbol.png)
 
-5. Write the name of the first one to play,i.e., your name or the name of your oponent, when asked for.
+5. Write the name of the first one to play,i.e., your name or the name of your opponent, when asked for it.
 
 ![screenshot](./img/firs_to_play.png)
 
-6. Follow instructions on the command prompt. Pick up a number from the list of vailid moves to mark your symbol on the game grid (board)
+6. Follow instructions on the command prompt. Pick up a number from the list of valid moves to mark your symbol on the game grid (board).
 
 ![screenshot](./img/turn.png)
 
-7. Pay attention to your opponent's moves and counter-attack to block all his or her attemps to win the game according to the 'About the Game' section above, while attempting to place three of your mark in a horizontal, vertical, or diagonal row,
+7. Pay attention to your opponent's moves and counter-attack to block all his or her attempts to win the game according to the 'About the Game' section above, while attempting to place three of your mark in a horizontal, vertical, or diagonal row,
 
 ![screenshot](./img/est.png)
 
@@ -104,6 +104,7 @@ As prerequisites, you must have:
 9. Answer Y or N whether you want to play again or not.
 
 ![screenshot](./img/pllayagain.png)
+
 10. Have fun!
 
 ## Author
