@@ -1,4 +1,4 @@
-# Object Oriented Programming: An Implementation the  of Tic-tac-toe Game
+# Object Oriented Programming: An Implementation of the Tic-tac-toe Game
 
 > This project concerns the implementation of the tic-tac. toe game in Ruby using the Object-Oriented Programming concept.
 
