@@ -52,8 +52,16 @@ To download, configure and run Ruby on your local machine, please access https:/
 4. type 'cd tic-tac-toe-project' and  press ENTER, to go to the tic-tac-toe game folder in your local machine.
 5. Type 'bin/main.rb' and press ENTER to run the game.
 ### How to Play
-
-
+1. Follow instructions presented above to setup and run the game on your local machine.
+2. When prompted, follow instructions on the screen. It is important to write names correctly, so that the subsequent requests for name spellings match the spelling of the first introduction.
+3. Write your name and the name of your opponent when asked for.
+4. Pick up your game symbol when asked for.
+5. Write the name of the first one to play,i.e., your name or the name of your oponent, when asked for.
+6. Follow instructions on the command prompt. Pick up a number from the list of vailid moves to mark your symbol on the game grid (board)
+7. Pay attention to your opponent's moves and counter-attack to block all his or her attemps to win the game according to the 'About the Game' section above, while attempting to place three of your mark in a horizontal, vertical, or diagonal row,
+8. You'll be prompted if game over or if match drawn, and will display and congratulate the winner.
+9. Answer Y or N whether you want to play again or not.
+10. Have fun!
 ## Author
 
 👤 Albertino Francisco
