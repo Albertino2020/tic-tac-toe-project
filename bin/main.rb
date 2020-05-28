@@ -2,7 +2,7 @@
 # rubocop: disable Metrics/BlockNesting
 require_relative '../lib/board.rb'
 require_relative '../lib/player.rb'
-puts 'Wellcome to the tic-tac-toe geme!'
+puts 'Wellcome to the tic-tac-toe game!'
 player_one_name = ''
 player_two_name = ''
 X = 'X'.freeze
