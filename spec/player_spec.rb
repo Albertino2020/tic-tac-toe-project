@@ -26,4 +26,12 @@ describe Player do
         end
       end
 
+      describe "#board" do
+        it "assigns values to the class variable @@board" do
+          player.board = arr
+          expect(player.board).to eql(arr)
+          expect(player.board.class).to eql(Array)
+        end
+      end
+
 end
