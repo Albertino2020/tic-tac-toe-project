@@ -45,4 +45,11 @@ RSpec.describe Board do
       expect(board.next_to_play).to eql board.player_one
     end
   end
+
+  describe "#switch" do
+    it "switches players between turns" do
+      board.switch(board.player_one)
+      expect(board.player_two.turn).to be true
+    end
+  end
 end
