@@ -1,7 +1,7 @@
 require './lib/board.rb'
 require './lib/player.rb'
 
-describe Board do
+RSpec.describe Board do
   let(:pname1) {'name1'}
   let(:pname2) {'name2'}
   let(:symb1) {'X'}
@@ -30,4 +30,12 @@ describe Board do
       expect(board.current_board[1]).to eql('X')
     end
   end
+
+  describe '#next_move' do
+    it 'starts the next players move' do
+      board.next_move
+      expect(board.next_to_play).to eql(board.player_two)
+    end
+  end
+
 end
