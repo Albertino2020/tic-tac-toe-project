@@ -1,3 +1,4 @@
+
 # rubocop: disable Style/ClassVars
 class Player
   attr_reader :name, :symbol, :turn, :choice, :game_over, :wrong_move

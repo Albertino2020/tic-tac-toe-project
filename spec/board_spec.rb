@@ -9,6 +9,7 @@ RSpec.describe Board do
   let(:option) {true}
   let(:board) {Board.new(:pname1, :pname2, :symb1, :symb2, :option)}
   let(:current_board) { [1, 2, 3, 4, 5, 6, 7, 8, 9] }
+  
 
   describe '#initialize' do
     it 'initializes as the board class' do
@@ -33,8 +34,9 @@ RSpec.describe Board do
 
   describe '#next_move' do
     it 'starts the next players move' do
-      board.next_move
-      expect(board.next_to_play).to eql(board.player_two)
+      board.player_one.check_input = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+      board.player_two.check_input = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+      expect(board.next_move).to eql(board.player_two.play)
     end
   end
 
