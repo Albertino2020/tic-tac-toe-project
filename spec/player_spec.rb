@@ -18,6 +18,12 @@ describe Player do
           expect(player.turn).to eql(:turn1)
         end
       end
-
+      describe "#check_input" do
+        it "assigns values to the class variable @@check_input" do
+          player.check_input = arr
+          expect(player.check_input).to eql(arr)
+          expect(player.check_input.class).to eql(Array)
+        end
+      end
 
 end
