@@ -34,4 +34,17 @@ describe Player do
         end
       end
 
+      describe "#play" do
+        context 'player takes a wrong move' do
+          it "checks for players turn and executes the players move" do
+            player.choice = 0
+            player.play
+            expect(player.wrong_move).to be true
+            expect(player.turn).to be :turn1
+            expect(player.check_input.include?(player.choice)).to be false 
+          end
+        end
+
+      end
+
 end
