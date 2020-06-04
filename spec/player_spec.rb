@@ -44,7 +44,17 @@ describe Player do
             expect(player.check_input.include?(player.choice)).to be false 
           end
         end
-
+        context 'player takes a correct move but not game over' do
+          it "checks for players turn and executes the players move" do
+            player.choice = 2
+            expect(player.check_input.include?(player.choice)).to be true
+            expect(player.wrong_move).to be nil
+            player.play
+            expect(player.turn).to be :turn1
+            expect(player.check_input.include?(player.choice)).to be false
+            expect(player.game_over).to be nil
+          end
+        end
       end
 
 end
