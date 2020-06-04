@@ -7,6 +7,8 @@ describe Player do
     let(:turn1) { true }
     let(:player) { Player.new(:name1, :symbol1, :turn1) }
     let(:arr) { [1, 2, 3, 4, 5, 6, 7, 8, 9] }
+    BOARD_CHECK = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]].freeze
+
   
     describe "#initialize" do
         it "Initializes as a Player class" do
@@ -37,24 +39,20 @@ describe Player do
       describe "#play" do
         context 'player takes a wrong move' do
           it "checks for players turn and executes the players move" do
-            player.choice = 0
-            player.play
-            expect(player.wrong_move).to be true
-            expect(player.turn).to be :turn1
-            expect(player.check_input.include?(player.choice)).to be false 
+            expect(player.play).to eql(nil)
+            expect(board.play).to
           end
         end
-        context 'player takes a correct move but not game over' do
-          it "checks for players turn and executes the players move" do
-            player.choice = 2
-            expect(player.check_input.include?(player.choice)).to be true
-            expect(player.wrong_move).to be nil
-            player.play
-            expect(player.turn).to be :turn1
-            expect(player.check_input.include?(player.choice)).to be false
-            expect(player.game_over).to be nil
-          end
-        end
+        # context 'player takes a correct move but not game over' do
+        #   it "checks for players turn and executes the players move" do
+        #     player.play
+        #   end
+        # end
+        # context 'player takes a correct move and game is over' do
+        #   it "checks for players turn and executes the players move" do
+        #     player.play
+        #   end
+        # end
       end
 
 end
