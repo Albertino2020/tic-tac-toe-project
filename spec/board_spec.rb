@@ -22,4 +22,12 @@ describe Board do
       expect(board.player_two.turn).to eql(!:option)
     end
   end
+  describe '#record' do
+    it "records player'/s move on the board" do
+      board.record('X', 2)
+      expect(board.record('X', 2)).to eql('X')
+      expect(board.current_board).to eql([1, 'X', 3, 4, 5, 6, 7, 8, 9])
+      expect(board.current_board[1]).to eql('X')
+    end
+  end
 end
