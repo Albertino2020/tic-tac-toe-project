@@ -95,5 +95,22 @@ describe Player do
         expect(player.check_input.include?(player.choice)).to be false
       end
     end
+    describe "#game_over" do
+      it "returns false if the players move is not a winning one" do
+        player.board = board
+        player.choice = 3
+        player.board.count = 0
+        player.play
+        expect(player.game_over).to be false
+      end
+      it "returns true if player takes a winning move" do
+        player.board = board
+        player.board.current_board = [1, "X", "X", 4, 5, 6, 7, 8, 9]
+        player.choice = 1
+        player.board.count = 0
+        player.play
+        expect(player.game_over).to be true
+      end
+    end    
   end
 end
