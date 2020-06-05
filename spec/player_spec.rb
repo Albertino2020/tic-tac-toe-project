@@ -46,7 +46,7 @@ describe Player do
         player.play
         expect(player.wrong_move).to be true
       end
-  
+
       it "checks for players input and breaks" do
         player.board = board
         player.choice = 0
@@ -68,6 +68,29 @@ describe Player do
       it "checks and validates the player's move" do
         player.board = board
         player.choice = 0
+        player.play
+        expect(player.check_input.include?(player.choice)).to be false
+      end
+    end
+    context "player takes a valid move" do
+      it "validates the players move" do
+        player.board = board
+        player.choice = 3
+        player.play
+        expect(player.wrong_move).to be nil
+      end
+
+      it "checks for player's turn and records the players move on the #current_board" do
+        player.board = board
+        player.choice = 3
+        player.board.count = 0
+        player.play
+        expect(player.board.current_board).to eql([1, 2, "X", 4, 5, 6, 7, 8, 9])
+      end
+      it "it updates the list of valid input by removing the player's move from the #check_input" do
+        player.board = board
+        player.choice = 3
+        player.board.count = 0
         player.play
         expect(player.check_input.include?(player.choice)).to be false
       end
