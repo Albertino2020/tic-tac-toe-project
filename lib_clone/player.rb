@@ -34,11 +34,15 @@ class Player
     @@count = value
   end
 
+  def game_over
+    @game_over = BOARD_CHECK.any? { |opt| opt.all? { |match| @@board.current_board[match] == @symbol } }
+  end
+
   BOARD_CHECK = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]].freeze
 
   def play
     while turn
-      @choice = gets.to_i
+      # @choice = gets.to_i
       unless @@check_input.include?(@choice)
         @wrong_move = true
         break
@@ -46,7 +50,7 @@ class Player
       @@board.record(@symbol, @choice)
       @@check_input.delete(@choice)
       @game_over = BOARD_CHECK.any? { |opt| opt.all? { |match| @@board.current_board[match] == @symbol } }
-      display(@@board.current_board)
+      # display(@@board.current_board) This was commenting for testing pursposes an should be uncommented laterFaker::Bank.iban
       @@count += 1
       @turn = false
     end

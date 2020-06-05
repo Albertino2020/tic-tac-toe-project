@@ -1,5 +1,5 @@
-require "./lib/board.rb"
-require "./lib/player.rb"
+require "./lib_clone/board.rb"
+require "./lib_clone/player.rb"
 
 describe Player do
   let(:name1) { "name1" }
