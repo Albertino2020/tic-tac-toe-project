@@ -39,5 +39,38 @@ describe Player do
     it "it runs the player's moves and returns nil" do
       expect(player.play).to eql(nil)
     end
+    context "player takes a wrong move" do
+      it "it validates the players move" do
+        player.board = board
+        player.choice = 0
+        player.play
+        expect(player.wrong_move).to be true
+      end
+  
+      it "checks for players input and breaks" do
+        player.board = board
+        player.choice = 0
+        player.play
+        expect(player.board.current_board).to eql(arr)
+      end
+      it "doesn't change the player's turn" do
+        player.board = board
+        player.choice = 0
+        player.play
+        expect(player.turn).to be true
+      end
+      it "doesn't update the game status" do
+        player.board = board
+        player.choice = 0
+        player.play
+        expect(player.game_over).to be false
+      end
+      it "checks and validates the player's move" do
+        player.board = board
+        player.choice = 0
+        player.play
+        expect(player.check_input.include?(player.choice)).to be false
+      end
+    end
   end
 end
