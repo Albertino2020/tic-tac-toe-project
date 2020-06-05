@@ -1,6 +1,6 @@
 # rubocop: disable Style/ClassVars
 class Player
-  attr_reader :name, :symbol, :turn, :choice, :game_over, :wrong_move
+  attr_reader :name, :symbol, :turn, :choice, :wrong_move #:game_over
   attr_writer :name, :symbol, :turn, :choice, :game_over, :wrong_move
 
   def initialize(name, symbol, turn)
@@ -50,7 +50,7 @@ class Player
       @@board.record(@symbol, @choice)
       @@check_input.delete(@choice)
       @game_over = BOARD_CHECK.any? { |opt| opt.all? { |match| @@board.current_board[match] == @symbol } }
-      # display(@@board.current_board) This was commenting for testing pursposes an should be uncommented laterFaker::Bank.iban
+      # display(@@board.current_board)
       @@count += 1
       @turn = false
     end
