@@ -11,12 +11,19 @@ describe Player do
   board = Board.new('maria', 'joao', 'X', 'O', true)
   describe '#initialize' do
     it 'Initializes as a Player class' do
+      expect { Player.new('maria', 'X', true)}.to_not raise_error
       expect(player.class).to eql(Player)
     end
     it 'initializes instance variables' do
       expect(player.name).to eql('maria')
       expect(player.symbol).to eql('X')
       expect(player.turn).to be true
+    end
+    it "does not create objec if required arguments missing" do
+      expect { Player.new }.to raise_error(ArgumentError)
+      expect { Player.new(:pname1) }.to raise_error(ArgumentError)
+      expect { Player.new(:pname1, :symb2) }.to raise_error(ArgumentError)
+      expect { Player.new(:symb2, :option) }.to raise_error(ArgumentError)
     end
   end
   describe '#check_input' do
