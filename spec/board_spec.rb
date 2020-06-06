@@ -24,6 +24,11 @@ RSpec.describe Board do
     end
     it "does not create objec if required arguments missing" do
       expect { Board.new }.to raise_error(ArgumentError)
+      expect { Board.new(:pname1) }.to raise_error(ArgumentError)
+      expect { Board.new(:pname1, :symb2, :option) }.to raise_error(ArgumentError)
+      expect { Board.new(:symb2, :option) }.to raise_error(ArgumentError)
+      expect { Board.new(:pname1, :pname2, :symb1) }.to raise_error(ArgumentError)
+      expect { Board.new(:pname1, :symb1, :symb2, :option) }.to raise_error(ArgumentError)
     end
   end
   # rubocop: enable Lint/LiteralAsCondition
