@@ -42,7 +42,6 @@ RSpec.describe Board do
   describe '#next_move' do
     it 'starts the next players move' do
       board.player_one.check_input = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-      board.player_two.check_input = [1, 2, 3, 4, 5, 6, 7, 8, 9]
       expect(board.next_move).to eql(board.player_two.play)
     end
   end
