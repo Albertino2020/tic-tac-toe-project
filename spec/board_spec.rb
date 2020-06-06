@@ -22,7 +22,7 @@ RSpec.describe Board do
       expect(board.player_two.symbol).to eql(:symb2)
       expect(board.player_two.turn).to eql(!:option)
     end
-    it "does not create objec if required arguments missing" do
+    it "does not create object if required arguments missing" do
       expect { Board.new }.to raise_error(ArgumentError)
       expect { Board.new(:pname1) }.to raise_error(ArgumentError)
       expect { Board.new(:pname1, :symb2, :option) }.to raise_error(ArgumentError)
@@ -54,7 +54,7 @@ RSpec.describe Board do
       expect(board.player_two.check_input).to eql([1, 2, 3, 4, 5, 6, 7, 8, 9])
       expect(board.player_two.check_input).to eql(board.player_one.check_input)
     end
-    it "does not allow a player to take more than one valid move at a tune" do
+    it "does not allow a player to take more than one valid move at a time" do
       board.switch(board.player_one)
       expect(board.next_move.equal?(board.player_two.play)).not_to be false
       expect(board.player_two.turn).to_not be false
