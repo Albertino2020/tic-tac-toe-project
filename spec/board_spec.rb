@@ -12,7 +12,7 @@ RSpec.describe Board do
 
   # rubocop: disable Lint/LiteralAsCondition
   describe '#initialize' do
-    it 'initializes as the board class' do
+    it 'creates the Board class instance if all required attibutes are passed' do
       expect(board.class).to eql(Board)
       expect(board.current_board).to eql(current_board)
       expect(board.player_one.name).to eql(:pname1)
@@ -26,11 +26,16 @@ RSpec.describe Board do
   # rubocop: enable Lint/LiteralAsCondition
 
   describe '#record' do
-    it "records player'/s move on the board" do
-      board.record('X', 2)
+    it "records player'/s move on the board if all required arguments given" do
+      expect {board.record('X', 2)}.to_not raise_error
       expect(board.record('X', 2)).to eql('X')
       expect(board.current_board).to eql([1, 'X', 3, 4, 5, 6, 7, 8, 9])
       expect(board.current_board[1]).to eql('X')
+    end
+    it 'raises error if arguments missimg ' do
+      expect {board.record('X')}.to raise_error(ArgumentError)
+      expect {board.record(2)}.to raise_error(ArgumentError)
+      expect {board.record()}.to raise_error(ArgumentError)
     end
   end
 
