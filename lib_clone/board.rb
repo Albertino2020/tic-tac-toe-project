@@ -31,8 +31,10 @@ class Board
   def switch(player)
     if player == player_one
       @player_two.turn = true
-    else
+      @player_one.turn = false
+    elsif player == player_two
       @player_one.turn = true
+      @player_two.turn = false
     end
   end
 end

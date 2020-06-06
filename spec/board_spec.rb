@@ -71,8 +71,18 @@ RSpec.describe Board do
 
   describe "#switch" do
     it "switches players between turns" do
+      board.player_one.turn = false
+      board.player_two.turn = false
       board.switch(board.player_one)
       expect(board.player_two.turn).to be true
+      expect(board.player_one.turn).to be false
+     end
+    it "it does not change anything if no arguments given" do
+      board.player_one.turn = false
+      board.player_two.turn = false 
+      expect {board.switch()}.to raise_error(ArgumentError)
+      expect(board.player_one.turn).to_not be true
+      expect(board.player_two.turn).to_not be true
     end
   end
 end
