@@ -54,7 +54,7 @@ RSpec.describe Board do
       expect(board.player_two.check_input).to eql([1, 2, 3, 4, 5, 6, 7, 8, 9])
       expect(board.player_two.check_input).to eql(board.player_one.check_input)
     end
-    it "does not allow a player to take more than one valid moves at a tune" do
+    it "does not allow a player to take more than one valid move at a tune" do
       board.switch(board.player_one)
       expect(board.next_move.equal?(board.player_two.play)).not_to be false
       expect(board.player_two.turn).to_not be false
@@ -63,9 +63,9 @@ RSpec.describe Board do
   end
   describe "#next_to_play" do
     it "returns the next to play" do
-      board.player_one.check_input = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-      board.player_two.check_input = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+      board.player_two.turn = false
       expect(board.next_to_play).to eql board.player_one
+      expect(board.next_to_play).to_not eql board.player_two
     end
   end
 
