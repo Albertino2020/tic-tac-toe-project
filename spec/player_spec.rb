@@ -43,11 +43,11 @@ describe Player do
   end
 
   describe '#play' do
-    it "it runs the player's moves and returns nil" do
+    it "runs the player's moves and returns nil" do
       expect(player.play).to eql(nil)
     end
     context 'player takes a wrong move' do
-      it 'it validates the players move' do
+      it 'validates the players move' do
         player.board = board
         player.choice = 0
         player.play
@@ -94,7 +94,7 @@ describe Player do
         player.play
         expect(player.board.current_board).to eql([1, 2, 'X', 4, 5, 6, 7, 8, 9])
       end
-      it "it updates the list of valid input by removing the player's move from the #check_input" do
+      it "updates the list of valid input by removing the player's move from the #check_input" do
         player.board = board
         player.choice = 3
         player.board.count = 0
